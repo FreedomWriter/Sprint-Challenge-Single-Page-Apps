@@ -11,14 +11,14 @@ export default function CharacterCard({
   imgAlt
 }) {
   const CardSizing = styled.div`
-    width: 75%;
+    width: 100%;
     display: flex;
     flex-flow: row wrap;
     border: 1px solid lightgrey;
     margin: 3% auto;
     align-content: center;
-    width: 50vw;
-    min-height: 50vh;
+    width: 35vw;
+    min-height: 35vh;
     max-width: 1024px;
     margin: 35px auto;
     background: #fff;

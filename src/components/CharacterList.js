@@ -18,7 +18,7 @@ export default function CharacterList() {
       .catch(err => {
         console.log(err);
       });
-  }, []);
+  }, [characters]);
 
   const submitHandler = () => {};
 
