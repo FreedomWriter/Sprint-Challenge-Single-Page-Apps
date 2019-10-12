@@ -19,13 +19,18 @@ export default function CharacterList() {
         console.log(err);
       });
   }, []);
+
+  const submitHandler = () => {};
+
   return (
     <section className="character-list">
       {/* <h2>TODO: `array.map()` over your state here!</h2> */}
       <SearchForm
-        name={characters.map(char => {
-          return char.name;
-        })}
+        onSubmit={submitHandler}
+        // name={characters.map(char => {
+        //   return char.name;
+        // }) }
+        characters={characters}
       />
       {characters.map(char => {
         // console.log(char);
