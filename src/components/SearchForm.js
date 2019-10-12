@@ -92,50 +92,76 @@
 //another attempt
 import React, { useState, useEffect } from "react";
 // import { Formik, Form, Field, withFormik } from "formik";
-import { Link, Route } from "react-router-dom";
-import axios from "axios";
-import WelcomePage from "./WelcomePage";
+import { Route } from "react-router-dom";
+import styled from "styled-components";
+import SearchedValue from "./SearchedValue";
 
-export default function SearchForm({ characters, history }) {
-  const [searchValueID, setSearchValueID] = useState([]);
+export default function SearchForm({ characters, history, match }) {
+  const [searchValue, setSearchValueID] = useState([]);
+  // const [favSelected, setFavSelected] = useState(false);
+  const [hidden, setHidden] = useState(false);
 
   console.log(history);
+  console.log(match);
+
+  const CardSizing = styled.div`
+    width: 75%;
+    display: flex;
+    flex-flow: row wrap;
+    // margin: 30% auto;
+    margin-left: 40%;
+    jusifty-content: flex-end;
+  `;
+
+  const Hide = styled.div`
+    display: hidden;
+  `;
 
   const clickHandler = e => {
     console.log(`I was clicked this is my e.target.value: ${e.target.value}`);
 
     console.log(typeof e.target.value);
-    const id = e.target.value;
-    return history.push("/");
-    // <CardSizing key={id}>
-    //   <div>
-    //     <h3>{name}</h3>
-    //     <h4>{status}</h4>
-    //   </div>
-    //   <img width="100%" src={imgSrc} alt={imgAlt} />
-    //   <div>
-    //     <h5>
-    //       Meet {name} a {gender} of the {species} species. You can find {name}{" "}
-    //       (or what's left of {name}) on {location}.
-    //     </h5>
-    //     {/* <CardLink href="#">Card Link</CardLink>
-    //       <CardLink href="#">Another Link</CardLink> */}
-    //   </div>
-    // </CardSizing>
+    const sel = parseInt(e.target.value) - 1;
+    console.log(characters[sel]);
+    setSearchValueID(characters[sel]);
+    console.log(searchValue.name);
+    console.log(characters[sel].name);
+    // history.pop("/characters");
+    // history.push("/character/status");
   };
+
+  console.log(searchValue);
+  // console.log(favSelected);
   return (
-    <section className="search-form">
-      <form>
-        <select onChange={clickHandler}>
-          {characters.map(char => {
-            return (
-              <option onClick={clickHandler} value={char.id}>
-                {char.name}
-              </option>
-            );
-          })}
-        </select>
-      </form>
-    </section>
+    <div>
+      <section className="search-form">
+        <form>
+          <CardSizing>
+            <label htmlFor="char">Dead or Alive?</label>
+            <select onChange={clickHandler}>
+              {characters.map(char => {
+                return (
+                  <option name="char" onClick={clickHandler} value={char.id}>
+                    {char.name}
+                  </option>
+                );
+              })}
+            </select>
+          </CardSizing>
+        </form>
+      </section>
+      <Route
+        path="/"
+        render={props => {
+          return (
+            <SearchedValue
+              {...props}
+              characters={characters}
+              searchValue={searchValue}
+            />
+          );
+        }}
+      />
+    </div>
   );
 }

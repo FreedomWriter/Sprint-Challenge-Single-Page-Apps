@@ -29,8 +29,7 @@ export default function CharacterCard({
   return (
     <CardSizing key={id}>
       <div>
-        <h3>{name}</h3>
-        <h4>{status}</h4>
+        <h2>{name}</h2>
       </div>
       <img width="100%" src={imgSrc} alt={imgAlt} />
       <div>
@@ -38,8 +37,6 @@ export default function CharacterCard({
           Meet {name} a {gender} of the {species} species. You can find {name}{" "}
           (or what's left of {name}) on {location}.
         </h5>
-        {/* <CardLink href="#">Card Link</CardLink>
-            <CardLink href="#">Another Link</CardLink> */}
       </div>
     </CardSizing>
   );
