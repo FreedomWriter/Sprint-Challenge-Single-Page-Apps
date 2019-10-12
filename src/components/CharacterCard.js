@@ -1,15 +1,4 @@
 import React from "react";
-import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardLink,
-  CardTitle,
-  CardSubtitle,
-  Row,
-  Col
-} from "reactstrap";
 import styled from "styled-components";
 
 export default function CharacterCard({
@@ -43,7 +32,7 @@ export default function CharacterCard({
         <h3>{name}</h3>
         <h4>{status}</h4>
       </div>
-      <CardImg width="100%" src={imgSrc} alt={imgAlt} />
+      <img width="100%" src={imgSrc} alt={imgAlt} />
       <div>
         <h5>
           Meet {name} a {gender} of the {species} species. You can find {name}{" "}
