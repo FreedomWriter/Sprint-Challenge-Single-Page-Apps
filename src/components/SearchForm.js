@@ -98,8 +98,7 @@ import SearchedValue from "./SearchedValue";
 
 export default function SearchForm({ characters, history, match }) {
   const [searchValue, setSearchValueID] = useState([]);
-  // const [favSelected, setFavSelected] = useState(false);
-  const [hidden, setHidden] = useState(false);
+  const [showContent, setShowContent] = useState(false);
 
   console.log(history);
   console.log(match);
@@ -126,6 +125,7 @@ export default function SearchForm({ characters, history, match }) {
     setSearchValueID(characters[sel]);
     console.log(searchValue.name);
     console.log(characters[sel].name);
+    setShowContent(true);
     // history.pop("/characters");
     // history.push("/character/status");
   };
@@ -150,18 +150,20 @@ export default function SearchForm({ characters, history, match }) {
           </CardSizing>
         </form>
       </section>
-      <Route
-        path="/"
-        render={props => {
-          return (
-            <SearchedValue
-              {...props}
-              characters={characters}
-              searchValue={searchValue}
-            />
-          );
-        }}
-      />
+      {showContent ? (
+        <Route
+          path="/"
+          render={props => {
+            return (
+              <SearchedValue
+                {...props}
+                characters={characters}
+                searchValue={searchValue}
+              />
+            );
+          }}
+        />
+      ) : null}
     </div>
   );
 }

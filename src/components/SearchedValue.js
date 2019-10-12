@@ -1,9 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-export default function SearchedValue({ props, searchValue, characters }) {
-  console.log(searchValue);
-  //   console.log(characters);
+export default function SearchedValue({ searchValue }) {
   const CardSizing = styled.div`
     width: 75%;
     display: flex;

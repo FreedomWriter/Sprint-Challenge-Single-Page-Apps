@@ -5,7 +5,6 @@ export default function CharacterCard({
   id,
   name,
   location,
-  status,
   species,
   gender,
   imgSrc,
