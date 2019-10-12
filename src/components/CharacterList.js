@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Route } from "react-router-dom";
 import axios from "axios";
 import CharacterCard from "./CharacterCard";
 import SearchForm from "./SearchForm";
@@ -25,13 +26,17 @@ export default function CharacterList() {
   return (
     <section className="character-list">
       {/* <h2>TODO: `array.map()` over your state here!</h2> */}
-      <SearchForm
-        onSubmit={submitHandler}
-        // name={characters.map(char => {
-        //   return char.name;
-        // }) }
-        characters={characters}
+      <Route
+        path="/"
+        render={props => (
+          <SearchForm
+            history={props.history}
+            onSubmit={submitHandler}
+            characters={characters}
+          />
+        )}
       />
+
       {characters.map(char => {
         // console.log(char);
         return (
