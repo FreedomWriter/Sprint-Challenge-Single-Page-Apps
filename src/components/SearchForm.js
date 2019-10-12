@@ -112,10 +112,6 @@ export default function SearchForm({ characters, history, match }) {
     jusifty-content: flex-end;
   `;
 
-  const Hide = styled.div`
-    display: hidden;
-  `;
-
   const clickHandler = e => {
     console.log(`I was clicked this is my e.target.value: ${e.target.value}`);
 
@@ -129,6 +125,8 @@ export default function SearchForm({ characters, history, match }) {
     // history.pop("/characters");
     // history.push("/character/status");
   };
+
+  const clickHandlerClear = () => setShowContent(false);
 
   console.log(searchValue);
   // console.log(favSelected);
@@ -151,18 +149,21 @@ export default function SearchForm({ characters, history, match }) {
         </form>
       </section>
       {showContent ? (
-        <Route
-          path="/"
-          render={props => {
-            return (
-              <SearchedValue
-                {...props}
-                characters={characters}
-                searchValue={searchValue}
-              />
-            );
-          }}
-        />
+        <div>
+          <Route
+            path="/"
+            render={props => {
+              return (
+                <SearchedValue
+                  {...props}
+                  characters={characters}
+                  searchValue={searchValue}
+                  clickHandlerClear={clickHandlerClear}
+                />
+              );
+            }}
+          />
+        </div>
       ) : null}
     </div>
   );

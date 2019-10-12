@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-export default function SearchedValue({ searchValue }) {
+export default function SearchedValue({ searchValue, clickHandlerClear }) {
   const CardSizing = styled.div`
     width: 75%;
     display: flex;
@@ -30,8 +31,7 @@ export default function SearchedValue({ searchValue }) {
           We are sorry (or pleased) to inform you {searchValue.name}'s status
           is: {searchValue.status}.
         </h5>
-        {/* <CardLink href="#">Card Link</CardLink>
-            <CardLink href="#">Another Link</CardLink> */}
+        <button onClick={clickHandlerClear}>Clear</button>
       </div>
     </CardSizing>
   );
