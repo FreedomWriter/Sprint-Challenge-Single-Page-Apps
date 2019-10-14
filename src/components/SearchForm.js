@@ -10,7 +10,7 @@ import {
   Button
 } from "reactstrap";
 
-export default function SearchForm({ characters, history, match }) {
+export default function SearchForm({ characters }) {
   const [searchValue, setSearchValueID] = useState([]);
   const [showContent, setShowContent] = useState(false);
   const [dropDownOpen, setDropDownOpen] = useState(false);
