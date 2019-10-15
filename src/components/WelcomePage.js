@@ -17,7 +17,7 @@ export default function WelcomePage() {
         <Center>
           <img
             className="main-img"
-            src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+            src="https://rick-api.herokuapp.com/api/character/avatar/1.jpeg"
             alt="rick"
           />
         </Center>
